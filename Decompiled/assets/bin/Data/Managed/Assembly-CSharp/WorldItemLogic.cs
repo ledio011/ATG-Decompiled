@@ -125,12 +125,6 @@ public class WorldItemLogic : MonoBehaviour
 				SingletonUnity<UIManager>.Instance.ShowUI(UIInfo.DownLoadResRoot, null, null);
 				return;
 			}
-			// Close map-selection UI before changing scenes. MapUIRoot hides BaseUIRoot,
-			// which also moves the joystick off-screen; scene loading does not restore it.
-			UIManager uiManager = SingletonUnity<UIManager>.Instance;
-			uiManager.CloseUI(UIInfo.MapUIRoot);
-			uiManager.CloseUI(UIInfo.WorldMapRoot);
-			uiManager.CloseUI(UIInfo.NewMapUIRootLogic);
 			SingletonDontDestoryUnity<GameManager>.Instance.PlayerData.CopySceneChange = true;
 			enter_new_map.request request2 = new enter_new_map.request();
 			request2.mapInfoId = this.curMapInfoData.ID;
